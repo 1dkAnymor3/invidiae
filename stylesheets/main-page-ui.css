@@ -68,16 +68,16 @@ body {
     aspect-ratio: 1;
     background-color: rgba(0, 0, 0, 0);
     border: 0;
-    background-image: url("./resources/send-none.png");
+    background-image: url("./../resources/send-none.png");
     background-repeat: no-repeat;
     background-size: 93.333% 100%;
 }
 #send:hover {
-    background-image: url("./resources/send-hover.png");
+    background-image: url("./../resources/send-hover.png");
 }
 #send:active {
-    background-image: url("./resources/send-click.png");
+    background-image: url("./../resources/send-click.png");
 }
 #send:disabled {
-    background-image: url("./resources/send-disable.png");
+    background-image: url("./../resources/send-disable.png");
 }
