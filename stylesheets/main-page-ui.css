@@ -1,0 +1,81 @@
+* {
+  font-family: "JetBrains Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+    align-items: center;
+    text-align: center;
+    background-color: rgb(75, 59, 95);
+    margin: 25px;
+    color: rgb(215, 209, 237);
+}
+
+.inliner {
+    display: flex;
+    flex-direction: row;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#title {
+    width: 75%;
+    background-color: rgb(29, 28, 31);
+    padding: 10px;
+    margin: 0 auto;
+}
+
+#title p {
+    font-size: 2em;
+    font-weight: 800;
+    font-style: bold;
+    color: rgb(176, 154, 255);
+}
+
+#entry
+{
+    width: 50%;
+    background-color: rgb(215, 209, 237);
+    margin: 0 auto;
+}
+
+#hotbar {
+    background-color: rgb(29, 28, 31);
+    aspect-ratio: 15;
+    padding: 10px;
+}
+
+#inputter {
+    aspect-ratio: calc(4/3);
+    color: rgb(29, 28, 31);
+    padding: 10px;
+}
+
+#footer {
+    background-color: rgb(29, 28, 31);
+    aspect-ratio: 15;
+    display: flex;
+    padding: 10px;
+    justify-content: baseline;
+}
+
+#send {
+    height: auto;
+    aspect-ratio: 1;
+    background-color: rgba(0, 0, 0, 0);
+    border: 0;
+    background-image: url("/resources/send-none.png");
+    background-repeat: no-repeat;
+    background-size: 93.333% 100%;
+}
+#send:hover {
+    background-image: url("/resources/send-hover.png");
+}
+#send:active {
+    background-image: url("/resources/send-click.png");
+}
+#send:disabled {
+    background-image: url("/resources/send-disable.png");
+}
