@@ -18,6 +18,69 @@ body {
     flex-direction: row;
     margin-left: 5px;
     margin-right: 5px;
+    justify-content: center;
+    align-items: center;
+}
+
+.dropbox { /* for <button> element */
+    height: auto;
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(215, 209, 237);
+    border: none;
+}
+
+.dropbox:hover {
+    background-color: rgba(215, 209, 237, 0.1);
+}
+
+.dropbox:active {
+    background-color: rgba(215, 209, 237, 0.3);
+}
+
+.dropbox-list {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    background-color: rgb(29, 28, 31);
+}
+
+@supports (anchor-name: --test) and (position-anchor: --test) {
+    .dropbox {
+        anchor-name: --dropbox;
+    }
+
+    .dropbox-list {
+        position-anchor: --dropbox;
+        position: fixed;
+        left: anchor(right);
+        top: anchor(top);
+    }
+}
+@supports not ((anchor-name: --test) and (position-anchor: --test)) {
+    .dropbox-list {
+        position: absolute;
+        left: 0%;
+        top: 0%;
+        visibility: hidden;
+    }
+}
+
+.dropbox-list-item {
+    margin: 0px;
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(215, 209, 237);
+    border: none;
+    width: 100%;
+}
+
+.dropbox-list-item:hover {
+    background-color: rgba(215, 209, 237, 0.1);
+}
+
+.dropbox-list-item:active {
+    background-color: rgba(215, 209, 237, 0.3);
 }
 
 #title {
@@ -41,11 +104,13 @@ body {
     background-color: rgb(215, 209, 237);
     margin: 0 auto;
     max-width: 500px;
+    transform: translate(0, 0); /* -10%, 0 for sidebar */
 }
 
 #hotbar {
     background-color: rgb(29, 28, 31);
     aspect-ratio: 15;
+    display: flex;
     padding: 10px;
 }
 
@@ -60,7 +125,6 @@ body {
     aspect-ratio: 15;
     display: flex;
     padding: 10px;
-    justify-content: baseline;
 }
 
 #send {
@@ -72,12 +136,15 @@ body {
     background-repeat: no-repeat;
     background-size: 93.333% 100%;
 }
+
 #send:hover {
     background-image: url("./../resources/send-hover.png");
 }
+
 #send:active {
     background-image: url("./../resources/send-click.png");
 }
+
 #send:disabled {
     background-image: url("./../resources/send-disable.png");
 }
