@@ -64,7 +64,6 @@ body {
 
 @supports (anchor-name: --test) and (position-anchor: --test) {
     .dropbox-list {
-        position-anchor: --dropbox;
         position: fixed;
         left: anchor(left);
         top: anchor(bottom);
