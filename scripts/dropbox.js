@@ -5,6 +5,7 @@ for (let dropboxAssignedId = 0; dropboxAssignedId < allDropboxes.length; dropbox
     let dropbox = allDropboxes[dropboxAssignedId]
     dropbox.setAttribute("id", "dropbox-id-" + dropboxAssignedId.toString()) // dropbox-visible="false"
     dropbox.setAttribute("dropbox-visible", "false")
+    dropbox.style.anchorName = "--dropbox-" + dropboxAssignedId.toString()
     dropbox.addEventListener("click", function() { displayDropBox("dropbox-id-" + dropboxAssignedId.toString()) })
 }
 
@@ -38,17 +39,17 @@ function displayDropBox(id) {
             dropboxElement.innerText = dropboxListItem.innerText
             let dropboxNewSize = dropbox.getBoundingClientRect()
             if (dropboxPrevSize.width > dropboxNewSize.width) {
-                dropboxElement.style.width = dropboxPrevSize.width
+                dropboxElement.style.width = dropboxPrevSize.width.toString() + "px"
             }
             displayDropBox(dropboxId)
         })
     })
+    let dropboxSize = dropbox.getBoundingClientRect()
+    dropboxList.style.width = dropboxSize.width.toString() + "px"
+    dropboxList.style.positionAnchor = "--dropbox-" + id.slice(11)
     document.body.appendChild(dropboxList)
     if (window.getComputedStyle(dropboxList).visibility === "hidden") {
-        console.log("heya!")
-        let dropboxSize = dropbox.getBoundingClientRect()
         dropboxList.style.visibility = "visible"
-        dropboxList.style.width = dropboxSize.width.toString() + "px"
         function initPos()
         {
             let dropboxSize = dropbox.getBoundingClientRect();

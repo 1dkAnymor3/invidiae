@@ -1,3 +1,20 @@
+:root {
+  interpolate-size: allow-keywords;
+
+  @supports (width: -moz-available) {
+    --stretch: -moz-available;
+  }
+
+  @supports (width: -webkit-fill-available) {
+    --stretch: -webkit-fill-available;
+  }
+
+  @supports (width: stretch) {
+    --stretch: stretch;
+  }
+}
+
+
 * {
   font-family: "JetBrains Mono", monospace;
   font-optical-sizing: auto;
@@ -18,8 +35,8 @@ body {
     flex-direction: row;
     margin-left: 5px;
     margin-right: 5px;
-    justify-content: center;
     align-items: center;
+    width: max-content;
 }
 
 .dropbox { /* for <button> element */
@@ -46,15 +63,11 @@ body {
 }
 
 @supports (anchor-name: --test) and (position-anchor: --test) {
-    .dropbox {
-        anchor-name: --dropbox;
-    }
-
     .dropbox-list {
         position-anchor: --dropbox;
         position: fixed;
-        left: anchor(right);
-        top: anchor(top);
+        left: anchor(left);
+        top: anchor(bottom);
     }
 }
 @supports not ((anchor-name: --test) and (position-anchor: --test)) {
@@ -128,7 +141,7 @@ body {
 }
 
 #send {
-    height: auto;
+    height: 100%;
     aspect-ratio: 1;
     background-color: rgba(0, 0, 0, 0);
     border: 0;
@@ -147,4 +160,10 @@ body {
 
 #send:disabled {
     background-image: url("./../resources/send-disable.png");
+}
+
+#sender-span {
+    display: flex;
+    width: var(--stretch);
+    justify-content: right;
 }
